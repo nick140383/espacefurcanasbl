@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}reserver la salle{% endblock %}
+
+
+{% block body %}
+<div class="container">
+    <h1>reserver la salle</h1>
+    <p>Vous êtes sur le point de reserver la salle Espace Furcan,dites nous tout,on s'occupe du reste </p>
+    {{ form_start(form) }}
+    <div class="alert-light">
+        <h2>Commencez par nous dire quelles sont les dates qui vous interessent!</h2>
+
+        <div class="row">
+            <div class="col">
+                {{ form_row(form.dateDebut) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.dateFin) }}
+            </div>
+        </div>
+    </div>
+    {{ form_end(form) }}
+</div>
+
+{% endblock %}

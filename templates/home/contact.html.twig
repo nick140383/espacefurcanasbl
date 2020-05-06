@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block body %}
+    <!-- Contact -->
+    <section id="contact" style="background-image: url(http://www.espacefurcan.be/img/contact.jpg)">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h5 style="color:red;"></h5>
+                    <h2 class="section-heading text-uppercase">Nous contacter</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form method="post" accept-charset="utf-8" action="/contact"><div style="display:none;"><input class="form-control" type="hidden" name="_method" placeholder="_method"  value="POST"/></div>                <div class="form-group text required"><label class="whitetext" for="nom">Nom</label><input class="form-control" type="text" name="nom" placeholder="nom"  required="required" id="nom"/></div>                <div class="form-group email required"><label class="whitetext" for="email">Email</label><input class="form-control" type="email" name="email" placeholder="email"  required="required" id="email"/></div>                <div class="form-group tel required"><label class="whitetext" for="telephone">Telephone</label><input class="form-control" type="tel" name="telephone" placeholder="telephone"  required="required" id="telephone"/></div>                <div class="form-group textarea required"><label class="whitetext" for="message">Message</label><textarea class="form-control" name="message" placeholder="message"  required="required" id="message" rows="5"></textarea></div>                <div class="col-lg-12 text-center">
+                            <button class="btn btn-primary btn-pad" type="submit">Envoyer</button>                </div>
+                    </form>          </div>
+                <div class="col-md-12 text-center" style="margin-top:30px;">
+                    <a target="_blank" href="https://www.facebook.com/espacefurcan/"> <img src="img/fb1.png" style="width:50%;border-radius: 90px;"></a>
+                </div>
+            </div>
+        </div>
+    </section>        <!-- Localisation -->
+{% endblock %}

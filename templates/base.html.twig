@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<head xmlns:border="http://www.w3.org/1999/xhtml" xmlns:border="http://www.w3.org/1999/xhtml"
+      xmlns:https="http://www.w3.org/1999/xhtml">
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheef=" href= "https=//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css" media="screen" >
+    {% block stylesheets %}{% endblock %}
+
+    <link href='../packages/core/main.css' rel='stylesheet' />
+    <link href='../packages/daygrid/main.css' rel='stylesheet' />
+    <link href='../packages/timegrid/main.css' rel='stylesheet' />
+    <link href='../packages/list/main.css' rel='stylesheet' />
+    <script src='../packages/core/main.js'></script>
+    <script src='../packages/interaction/main.js'></script>
+    <script src='../packages/daygrid/main.js'></script>
+    <script src='../packages/timegrid/main.js'></script>
+    <script src='../packages/list/main.js'></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fa fa-bars"></i>
+        </button>
+        <li class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link js-scroll-trigger " style="color: rgba(157,202,33,1);">Accueil</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="">
+                        Nos activités
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a href="/aide-et-conseil-1" class="dropdown-item">Aide et conseil</a>
+                        <a href="/formations-et-stages-2" class="dropdown-item">Formations et stages</a>
+                        <a href="/soutien-scolaire-3" class="dropdown-item">Soutien scolaire</a>
+                        <a href="/aide-logement-et-emploi-4" class="dropdown-item">Aide au logement et à l&#039;emploi</a>
+                        <a href="/activites-socioculturelles-5" class="dropdown-item">Activités socioculturelles</a>
+                        <a href="/activites-de-loisirs-6" class="dropdown-item">Activités de loisirs</a>
+                        <a href="/vente-et-achat-7" class="dropdown-item">Vente et achat</a>
+                        <a href="/location-et-cyber-8" class="dropdown-item">Location et cyber</a>
+                        <a href="/reparation-9" class="dropdown-item">Réparation</a>
+                        <a href="/maintenance-10" class="dropdown-item">Maintenance</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+
+                    <a href="/a-propos" class="nav-link js-scroll-trigger" style="">A propos</a>            </li>
+                <li class="nav-item">
+                    <a href="/galerie" class="nav-link js-scroll-trigger" style="">Galeries</a>            </li>
+                <li class="nav-item">
+                    <a href="/nous-soutenir" class="nav-link js-scroll-trigger" style="">Nous Soutenir</a>            </li>
+                <li class="nav-item">
+                    <a href="/contact" class="nav-link js-scroll-trigger" style="">Contact</a>            </li>
+                <li class="nav-item">
+                    <a href="/nous-trouver" class="nav-link js-scroll-trigger" style="">Nous Trouver</a></li>
+                {% if not app.user %}
+                    <li class="nav-item">
+                        <a href="{{ path('authentication_user') }}" class="nav-link js-scroll-trigger" style="">Réserver une salle</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a href="{{ path('reservation') }}" class="nav-link js-scroll-trigger" style=""><strong class="text-danger">afficher calendrier</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('authentication_logout') }}" class="nav-link">Déconnexion</a>
+                    </li>
+                {% endif %}
+            </ul>
+            {% if app.user %}
+                <span><strong class="text-danger">{{app.user.username}}</strong></span>
+            {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+{% for label,messages in app.flashes %}
+  <div class="container">
+      <div class="alert alert-{{ label }}">
+          {% for message in messages %}
+             <p>{{ message|raw }}</p>
+          {% endfor %}
+      </div>
+  </div>
+{% endfor %}
+<img src="img/EFLogo.jpg" alt="logo espace furcan" />
+
+</body>
+        {% block body %} {% endblock %}
+        {% block javascripts %}{% endblock %}
+
+    <footer border="black">
+
+
+    <div class="container full-height">
+        <div class="row coordonnees">
+            <div class="col-md-3">
+                <img src="/img/logo-footer.png" class="img-fluid full-img" alt=""/>
+            </div>
+            <div class="col-md-4">
+                <h5 style="margin-top:75px;"><span style="color:rgba(0,82,158,1);">Espace</span> <span style="color:rgba(157,202,33,1);">Furcan</span> <span style="color:rgba(0,82,158,1);">asbl</span></h5>
+                <p class="text-muted" style="font-size:0.85em; font-weight: bold;">Avenue Notre Dame 123, 1140 Evere, ouvert tous les jours de 10h00 à 20h00, fermé le vendredi.</p>
+            </div>
+            <div class="col-md-3">
+                <p class="text-muted" style="margin-top:55px; font-size:85%;font-weight: bold;"><span style="color:rgba(0,82,158,1);">Tel : 02 256 85 49<br/>Mail : info@espacefurcan.be</span></p>
+                <p class="text-muted" style="font-size:0.85em;font-weight: bold;"><span style="color:rgba(0,82,158,1);">N° E. : 0693 709 950<br/>IBAN : BE87 7350 5000 4494</span></p>
+            </div>
+            <div class="col-md-2">
+                <p class="text-muted" style="margin-top:185px; font-size:0.6em;font-weight: bold;"><span style="color:rgba(0,82,158,1);">Copyright © All Rights Reserved</span></p>
+            </div>
+        </div>
+    </div>
+
+    </footer>
+
+        <script src="https://bootswatch.com/_vendor/jquery/dist/jquery.min.js"></script>
+        <script src="https://bootswatch.com/_vendor/popper.js/dist/umd/popper.min.js"></script>
+        <script src="https://bootswatch.com/_vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="https://bootswatch.com/_assets/js/custom.js"></script>
+
+</html>
